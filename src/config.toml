@@ -1,0 +1,9 @@
+    
+# Configuration for mac2client, Update apikey with your user API key.
+# output currently only supports 'vendor'
+
+[config]
+url = "https://api.macaddress.io/v1"
+apikey = "YOUR_API_KEY_HERE"
+output = "vendor"
+
