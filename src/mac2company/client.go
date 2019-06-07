@@ -19,7 +19,7 @@ var body struct {
 }
 
 var mainCmd = &cobra.Command{
-	Use:   "client",
+	Use:   "mac2company",
 	Short: "MAC lookup api client",
 	Long:  "Simple client to interact with macaddress.io.",
 	Run: func(cmd *cobra.Command, args []string) {
