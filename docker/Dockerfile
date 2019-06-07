@@ -4,7 +4,7 @@ FROM golang:alpine as build-env
 RUN apk update && \
     apk add go git gcc libc-dev libltdl libtool libgcc && \
     # Install go libraries
-	go get github.com/spf13/cobra && \
+    go get github.com/spf13/cobra && \
     go get github.com/spf13/viper && \
     # Install mac2company client
     git clone --depth=1 "https://github.com/mudpuppy12/mac2company.git" "${GOPATH}/src/github.com/mudpuppy12/mac2company" && \
