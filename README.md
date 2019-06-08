@@ -31,7 +31,7 @@ $ docker run --rm -ti mac2company
 $ docker run --rm -ti mac2company -h
 </pre>
 
-# Doing a company lookup lookup
+# Doing a company lookup
 
 <pre>
 $ docker run --rm -ti mac2company lookup --mac=08:00:27:6f:f7:15
