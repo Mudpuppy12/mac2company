@@ -6,7 +6,7 @@ to keep image size small.
 # What you need to get started!
 * Docker installed on your machine
 * Git > 1.8.x
-* An API key for https://macaddress.io
+* An API key from https://macaddress.io
 
 # Build instructions
 With API key in hand, use the following docker command to build the tool container.
