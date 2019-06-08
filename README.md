@@ -1,6 +1,6 @@
 # mac2company
 A simple go client that speaks to https://macaddress.io/ and retrieves the company name in which the MAC address is registered.
-The client is built with golang and using docker as an example on containerizing toolsets. It uses a two step Dockerfile to try
+The client is built with golang and using docker as an example on containerizing toolsets. It uses a two step build process to try
 to keep image size small.
 
 # What you need to get started!
@@ -44,7 +44,7 @@ $ docker run --rm -ti mac2company version
 </pre>
 
 # Security
-The API key is used during the image build process and is embeded into the config.toml file that the program uses. Keep this in mind as each run
+The API key is used during the image build process and is embedded into the config.toml file that the program uses. Keep this in mind as each run
 will use the same APIKEY in which was used at build time.
 
 
