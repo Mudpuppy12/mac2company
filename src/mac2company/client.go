@@ -12,11 +12,6 @@ import (
 
 const version = "1.0"
 
-var body struct {
-	Headers map[string]string `json:"headers"`
-	Origin  string            `json:"origin"`
-}
-
 var mainCmd = &cobra.Command{
 	Use:   "mac2company",
 	Short: "MAC lookup api client",
