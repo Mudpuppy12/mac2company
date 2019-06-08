@@ -1,13 +1,12 @@
 package main
 
 import (
-
 	"fmt"
-	"log"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
-	"net/http"
 	"io/ioutil"
+	"log"
+	"net/http"
 	"strings"
 )
 
@@ -37,9 +36,8 @@ var versionCmd = &cobra.Command{
 }
 
 func runCmd() {
-    fmt.Println("MAC address company lookup client. Type mac2company -h for help.")
+	fmt.Println("MAC address company lookup client. Type mac2company -h for help.")
 }
-
 
 var lookupCmd = &cobra.Command{
 	Use:   "lookup",
@@ -52,9 +50,9 @@ var lookupCmd = &cobra.Command{
 		mac := viper.GetString("mac")
 		output := viper.GetString("config.output")
 
-		apiTarget := fmt.Sprintf("%s?apiKey=%s&output=%s&search=%s", url, apikey,output,mac)
+		apiTarget := fmt.Sprintf("%s?apiKey=%s&output=%s&search=%s", url, apikey, output, mac)
 		res, err := http.Get(apiTarget)
-		if err != nil{
+		if err != nil {
 			log.Fatal(err)
 		}
 
@@ -65,26 +63,23 @@ var lookupCmd = &cobra.Command{
 			log.Fatal(err)
 		}
 
-
-        if strings.Contains(string(body), "Invalid") {
+		if strings.Contains(string(body), "Invalid") {
 			log.Fatal("Invalid MAC address (API result)")
 		}
 
 		if string(body) != "" {
-		fmt.Printf("The company associated with MAC: %s: is %s\n", mac, body)
-		} 
+			fmt.Printf("The company associated with MAC: %s is %s\n", mac, body)
+		}
 	},
 }
-
 
 func init() {
 
 	viper.SetConfigName("config") // no need to include file extension
-	viper.AddConfigPath(".") // look in current directory
+	viper.AddConfigPath(".")      // look in current directory
 	viper.AddConfigPath("/etc/mac2company/")
 	viper.AddConfigPath("$HOME/.mac2company/") // look in home directory
 
-	
 	err := viper.ReadInConfig()
 
 	if err != nil { // Handle errors reading the config file
@@ -95,7 +90,7 @@ func init() {
 
 	mainCmd.AddCommand(versionCmd)
 	mainCmd.AddCommand(lookupCmd)
-	
+
 	lookupFlags := lookupCmd.Flags()
 
 	lookupFlags.String("mac", "", "mac of device you want to lookup.")
@@ -107,6 +102,3 @@ func main() {
 	mainCmd.Execute()
 
 }
-
-
-
