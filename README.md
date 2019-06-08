@@ -11,7 +11,7 @@ to keep image size small.
 # Build instructions
 With API key in hand, use the following docker command to build the tool container.
 <pre>
-$ docker build --build-arg APIKEY=<API_KEY_HERE> https://github.com/Mudpuppy12/mac2company.git#master:docker -t mac2company
+$ docker build --build-arg APIKEY=API_KEY_HERE https://github.com/Mudpuppy12/mac2company.git#master:docker -t mac2company
 </pre>
 
 If you have an older git version (Centos 7.5 had 1.8.X) less than 2.X you may
